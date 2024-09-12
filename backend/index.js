@@ -3,7 +3,7 @@ import mongoose from "mongoose"
 import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
 dotenv.config();
-
+import path from 'path';
 import cors from "cors"
 import userRoutes from "./router/user_router.js"
 import textRoutes from "./router/text_router.js"
@@ -22,8 +22,16 @@ const MONGO="mongodb+srv://tambiarchit:7297898025@cluster0.5xnj5.mongodb.net/?re
    .then(() => {
      console.log("Database is connected");
    })
+   const __dirname = path.resolve()
 app.listen(PORT,()=>{
     console.log(`Server is running on port ${PORT}`);
+})
+
+
+app.use(express.static(path.join(__dirname, '/frontend/dist')));
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'frontend', 'dist', 'index.html'));
 })
 
 
