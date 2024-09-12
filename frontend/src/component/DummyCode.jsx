@@ -12,7 +12,7 @@ const DummyCode = () => {
             try {
               const response = await axios.get(`/backend/text/code-snippet/${selectedLanguage}`);
               console.log(response)
-              setCodeSnippet(response.data.code);
+              setCodeSnippet(response.data);
             } catch (error) {
               console.error('Error fetching code snippet:', error);
               setCodeSnippet('Failed to fetch code snippet.');
