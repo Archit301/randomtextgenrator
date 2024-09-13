@@ -26,7 +26,7 @@ router.get('/generate-random-text-length', generateRandomTextwithlength);
 router.post('/save-text', savetext);
 
 // Route to fetch saved texts by userId
-router.get('/get-saved-text', getsavetext);
+router.post('/get-saved-text', getsavetext);
 router.get('/generate-meaningful-text',generateMeaningfulText)
 router.get('/code-snippet/:language', generateSnippet);
 router.get('/getrandomjokes', getRandomJoke);

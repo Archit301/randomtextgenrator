@@ -13,6 +13,7 @@ import Aboutus from './component/Aboutus'
 import History from './component/History'
 import Register from './component/Register'
 import Login from './component/Login'
+import Genratetext from './Genratetext'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -23,6 +24,7 @@ function App() {
       <Header/>
      <Routes>
      <Route path="/" element={ <Home/>} />
+     <Route path="/generate-text" element={ <Genratetext/>} />
      <Route path="/login" element={ <Login/>} />
      <Route path="/register" element={ <Register/>} />
      <Route path="/history" element={ <History/>} />

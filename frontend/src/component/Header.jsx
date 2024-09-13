@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaUserCircle, FaSun, FaMoon, FaBars, FaTimes } from 'react-icons/fa';
+import { useSelector } from 'react-redux';
 
 const Header = () => {
   const [darkMode, setDarkMode] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
+  const { currentUser } = useSelector((state) => state.user);
+  console.log(currentUser)
   const toggleTheme = () => {
     setDarkMode(prev => {
       const newDarkMode = !prev;
@@ -33,6 +35,8 @@ const Header = () => {
             <Link to="/generate-text" className="py-2 px-4 hover:text-gray-600 transition duration-300">Generate Text</Link>
             <Link to="/about" className="py-2 px-4 hover:text-gray-600 transition duration-300">About</Link>
             <Link to="/history" className="py-2 px-4 hover:text-gray-600 transition duration-300">History</Link>
+            <Link to="/login" className="py-2 px-4 hover:text-gray-600 transition duration-300">Login</Link>
+            <Link to="/signup" className="py-2 px-4 hover:text-gray-600 transition duration-300">Signup</Link>
           </div>
 
           {/* Theme Toggle Icons */}
@@ -66,13 +70,18 @@ const Header = () => {
           <Link to="/generate-text" className="py-2 px-4 hover:text-gray-600 transition duration-300" onClick={handleMenuToggle}>Generate Text</Link>
           <Link to="/about" className="py-2 px-4 hover:text-gray-600 transition duration-300" onClick={handleMenuToggle}>About</Link>
           <Link to="/history" className="py-2 px-4 hover:text-gray-600 transition duration-300" onClick={handleMenuToggle}>History</Link>
-          <button 
+          {!currentUser && (
+  <Link to="/login" className="py-2 px-4 hover:text-gray-600 transition duration-300" onClick={handleMenuToggle}>
+    Login
+  </Link>
+)}      
+    {/* <button 
             onClick={toggleTheme} 
             className="text-2xl p-2 focus:outline-none" 
             aria-label={darkMode ? 'Switch to light mode' : 'Switch to dark mode'}
           >
             {darkMode ? <FaSun /> : <FaMoon />}
-          </button>
+          </button> */}
         </div>
       </div>
     </header>

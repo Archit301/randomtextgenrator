@@ -5,9 +5,9 @@ const SavedSchema=mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
          ref: 'User'
     },
-    string:{
-          type: mongoose.Schema.Types.ObjectId,
-         ref: 'User'
+    content:{
+          type: String,
+         req:true
     },
     Date:{
         type: Date, 

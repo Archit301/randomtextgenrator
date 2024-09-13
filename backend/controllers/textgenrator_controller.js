@@ -8,7 +8,7 @@ import generateRandomText from "../utills/randomtextgenrator_utils.js";
 export const generateRandom = (req, res) => {
     try {
         const  length = 50, charset = ['alphabetic'] 
-        const text = generateRandomText(parseInt(length),10, charset);
+        const text = generateRandomText(parseInt(length), charset);
         res.status(200).json({ text });
     } catch (error) {
         console.log(error)
@@ -52,15 +52,15 @@ export const generateRandom = (req, res) => {
     try {
       const { content, userId } = req.body;
       if (!content || !userId) {
-        return res.status(400).json({ error: 'Content and userId are required' });
+          return res.status(400).json({ error: 'Content and userId are required' });
       }
-  
+
       const newText = new Saved({ content, userId });
       await newText.save();
       res.status(201).json({ message: 'Text saved successfully', text: newText });
-    } catch (error) {
+  } catch (error) {
       res.status(500).json({ error: 'Failed to save text', details: error.message });
-    }
+  }
   };
   
 
