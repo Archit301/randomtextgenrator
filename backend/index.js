@@ -28,6 +28,10 @@ app.listen(PORT,()=>{
 })
 
 
+
+app.use("/backend/user",userRoutes)
+app.use("/backend/text",textRoutes)
+
 app.use(express.static(path.join(__dirname, '/frontend/dist')));
 
 app.get('*', (req, res) => {
@@ -35,8 +39,6 @@ app.get('*', (req, res) => {
 })
 
 
-app.use("/backend/user",userRoutes)
-app.use("/backend/text",textRoutes)
 
 
 

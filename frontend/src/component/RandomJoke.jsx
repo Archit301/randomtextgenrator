@@ -1,4 +1,5 @@
 import React, { useState, useCallback } from 'react';
+import axios from 'axios';
 
 const RandomJoke = () => {
   const [joke, setJoke] = useState("");
@@ -6,8 +7,11 @@ const RandomJoke = () => {
   const handleGenerateClick = async () => {
     // Placeholder for joke generation logic
     // You should replace this with the actual API call
-    setJoke(`This is a randomly generated joke.`);
+    const response = await axios.get(`/backend/text/getrandomjokes`);
+    setJoke(response.data);
   };
+
+ 
 
   const handleCopyClick = () => {
     navigator.clipboard.writeText(joke);

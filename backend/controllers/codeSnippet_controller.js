@@ -111,15 +111,15 @@ export const generateSnippet = (req, res) => {
   const { language } = req.params;
 
   // Log the received language parameter for debugging
-  console.log(`Received language parameter: "${language}"`);
+  // console.log(`Received language parameter: "${language}"`);
 
   // Normalize the language to lowercase for matching
   const normalizedLanguage = language.trim().toLowerCase();
 
-  // Log the normalized language for debugging
-  console.log(`Normalized language: "${normalizedLanguage}"`);
+  // // Log the normalized language for debugging
+  // console.log(`Normalized language: "${normalizedLanguage}"`);
 
-  // Find the corresponding code snippet
+  // // Find the corresponding code snippet
   const snippet = codeSnippets[normalizedLanguage];
 
   // Log the lookup result for debugging

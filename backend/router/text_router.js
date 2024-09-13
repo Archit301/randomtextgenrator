@@ -9,6 +9,8 @@ import  {
     getsavetext,
     generateRandom,} from "../controllers/textgenrator_controller.js";
 import { generateSnippet } from "../controllers/codeSnippet_controller.js";
+import { getRandomJoke } from "../controllers/joke_controller.js";
+import { getRandomStory } from "../controllers/story_controller.js";
 
 const router=express.Router();
 
@@ -27,9 +29,8 @@ router.post('/save-text', savetext);
 router.get('/get-saved-text', getsavetext);
 router.get('/generate-meaningful-text',generateMeaningfulText)
 router.get('/code-snippet/:language', generateSnippet);
-
-
-
+router.get('/getrandomjokes', getRandomJoke);
+router.get('/getrandomstory/:storyType', getRandomStory);
 
 
 export default router;
