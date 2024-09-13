@@ -68,20 +68,20 @@ const Header = () => {
         >
           <Link to="/" className="py-2 px-4 hover:text-gray-600 transition duration-300" onClick={handleMenuToggle}>Home</Link>
           <Link to="/generate-text" className="py-2 px-4 hover:text-gray-600 transition duration-300" onClick={handleMenuToggle}>Generate Text</Link>
+          <Link to="/history" className="py-2 px-4 hover:text-gray-600 transition duration-300" onClick={handleMenuToggle}>Saved</Link>
           <Link to="/about" className="py-2 px-4 hover:text-gray-600 transition duration-300" onClick={handleMenuToggle}>About</Link>
-          <Link to="/history" className="py-2 px-4 hover:text-gray-600 transition duration-300" onClick={handleMenuToggle}>History</Link>
           {!currentUser && (
   <Link to="/login" className="py-2 px-4 hover:text-gray-600 transition duration-300" onClick={handleMenuToggle}>
     Login
   </Link>
 )}      
-    {/* <button 
+     <button 
             onClick={toggleTheme} 
             className="text-2xl p-2 focus:outline-none" 
             aria-label={darkMode ? 'Switch to light mode' : 'Switch to dark mode'}
           >
             {darkMode ? <FaSun /> : <FaMoon />}
-          </button> */}
+          </button> 
         </div>
       </div>
     </header>

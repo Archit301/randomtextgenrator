@@ -16,6 +16,7 @@ import Login from './component/Login'
 import Genratetext from './Genratetext'
 import LoremIpsumGenrator from './component/LoremIpsumGenrator'
 import TextConverter from './component/TextConvertor'
+import TranslatorApp from './component/TranslatorApp'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -26,6 +27,7 @@ function App() {
       <Header/>
      <Routes>
      <Route path="/" element={ <Home/>} />
+     <Route path="/realtime-converter" element={ <TranslatorApp/>} />
      <Route path="/text-converter" element={ <TextConverter/>} />
      <Route path="/lorem-ipsum-generator" element={ <LoremIpsumGenrator/>} />
      <Route path="/generate-text" element={ <Genratetext/>} />

@@ -42,6 +42,12 @@ const Home = () => {
           <p className="text-gray-700 mb-4">Convert text to various formats or styles. Useful for text processing and formatting tasks.</p>
           <a href="/text-converter" className="text-blue-500 hover:underline">Convert Now</a>
         </div>
+
+        <div className="bg-white p-6 rounded-lg shadow-lg hover:bg-gray-50 transition">
+          <h3 className="text-xl font-semibold mb-2">Real Time Speech Recognization</h3>
+          <p className="text-gray-700 mb-4">Convert text to various Language. Useful for Voice genration and translate to other language.</p>
+          <a href="/realtime-converter" className="text-blue-500 hover:underline">Generate Now</a>
+        </div>
   
       </div>
     </div>
