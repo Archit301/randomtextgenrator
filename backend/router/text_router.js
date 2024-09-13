@@ -11,6 +11,7 @@ import  {
 import { generateSnippet } from "../controllers/codeSnippet_controller.js";
 import { getRandomJoke } from "../controllers/joke_controller.js";
 import { getRandomStory } from "../controllers/story_controller.js";
+import { genratelorem } from "../controllers/lorem_controller.js";
 
 const router=express.Router();
 
@@ -31,6 +32,6 @@ router.get('/generate-meaningful-text',generateMeaningfulText)
 router.get('/code-snippet/:language', generateSnippet);
 router.get('/getrandomjokes', getRandomJoke);
 router.get('/getrandomstory/:storyType', getRandomStory);
-
+router.post('/getloremipsum',genratelorem)
 
 export default router;

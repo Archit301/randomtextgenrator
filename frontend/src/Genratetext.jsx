@@ -84,7 +84,20 @@ const Genratetext = () => {
       document.body.appendChild(element);
       element.click();
     };
-  
+     
+    const shareText = () => {
+        if (navigator.share) {
+          navigator.share({
+            title: 'Custom text',
+            text: customText,
+          })
+          .then(() => console.log('Text shared successfully'))
+          .catch((error) => console.error('Error sharing text:', error));
+        } else {
+          alert('Share not supported on this browser.');
+        }
+      };
+
     // Save the text as .txt file
     const saveText = async() => {
         const content=text;
@@ -265,52 +278,63 @@ const Genratetext = () => {
                 value={customText}
                 onChange={(e) => setCustomText(e.target.value)}
               />
-              <div className="mt-4">
-                <button
-                  onClick={copyCustomText}
-                  className="bg-gray-500 text-white py-2 px-4 rounded hover:bg-gray-600"
-                >
-                  Copy Custom Text
-                </button>
-                <button
-                  onClick={() => handleStyleChange("bold")}
-                  className={`ml-2 py-2 px-4 rounded ${textStyle.bold ? "bg-gray-800 text-white" : "bg-gray-200"}`}
-                >
-                  Bold
-                </button>
-                <button
-                  onClick={() => handleStyleChange("italic")}
-                  className={`ml-2 py-2 px-4 rounded ${textStyle.italic ? "bg-gray-800 text-white" : "bg-gray-200"}`}
-                >
-                  Italic
-                </button>
-                <button
-                  onClick={() => handleStyleChange("underline")}
-                  className={`ml-2 py-2 px-4 rounded ${textStyle.underline ? "bg-gray-800 text-white" : "bg-gray-200"}`}
-                >
-                  Underline
-                </button>
-                <input
-                  type="color"
-                  value={textStyle.fontColor}
-                  onChange={(e) => setTextStyle((prev) => ({ ...prev, fontColor: e.target.value }))}
-                  className="ml-2 border-none p-2 rounded"
-                />
-                <select
-                  value={textStyle.fontFamily}
-                  onChange={(e) => setTextStyle((prev) => ({ ...prev, fontFamily: e.target.value }))}
-                  className="ml-2 border border-gray-300 rounded-lg p-2"
-                >
-                  <option value="Roboto">Roboto</option>
-                  <option value="Arial">Arial</option>
-                  <option value="Courier New">Courier New</option>
-                  <option value="Georgia">Georgia</option>
-                  <option value="Times New Roman">Times New Roman</option>
-                </select>
-              </div>
-            </div>
-          )}
-        </div>
+     <div className="mt-4 space-y-2">
+  <div className="flex flex-wrap gap-2">
+    <button
+      onClick={copyCustomText}
+      className="bg-gray-500 text-white py-2 px-4 rounded hover:bg-gray-600"
+    >
+      Copy Custom Text
+    </button>
+    <button
+      onClick={shareText}
+      className="bg-gray-500 text-white py-2 px-4 rounded hover:bg-gray-600"
+    >
+      Share
+    </button>
+    <button
+      onClick={() => handleStyleChange("bold")}
+      className={`py-2 px-4 rounded ${textStyle.bold ? "bg-gray-800 text-white" : "bg-gray-200"}`}
+    >
+      Bold
+    </button>
+    <button
+      onClick={() => handleStyleChange("italic")}
+      className={`py-2 px-4 rounded ${textStyle.italic ? "bg-gray-800 text-white" : "bg-gray-200"}`}
+    >
+      Italic
+    </button>
+    <button
+      onClick={() => handleStyleChange("underline")}
+      className={`py-2 px-4 rounded ${textStyle.underline ? "bg-gray-800 text-white" : "bg-gray-200"}`}
+    >
+      Underline
+    </button>
+  </div>
+
+  <div className="flex flex-wrap gap-2 items-center mt-2">
+    <input
+      type="color"
+      value={textStyle.fontColor}
+      onChange={(e) => setTextStyle((prev) => ({ ...prev, fontColor: e.target.value }))}
+      className="border-none p-2 rounded"
+    />
+    <select
+      value={textStyle.fontFamily}
+      onChange={(e) => setTextStyle((prev) => ({ ...prev, fontFamily: e.target.value }))}
+      className="border border-gray-300 rounded-lg p-2"
+    >
+      <option value="Roboto">Roboto</option>
+      <option value="Arial">Arial</option>
+      <option value="Courier New">Courier New</option>
+      <option value="Georgia">Georgia</option>
+      <option value="Times New Roman">Times New Roman</option>
+    </select>
+  </div>
+</div>
+
+</div>
+            )}  </div>
       </div>
 
           );

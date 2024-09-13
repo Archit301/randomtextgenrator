@@ -90,7 +90,7 @@ const RandomStory = () => {
           </div>
           
           <div className="text-lg text-gray-800 dark:text-gray-200">
-            <strong>Plot:</strong>
+            <strong>Story:</strong>
             {/* <ol className="list-decimal pl-5"> */}
               {Array.isArray(story.plot) && story.plot.length > 0 ? (
                 story.plot.map((plotPoint, index) => (

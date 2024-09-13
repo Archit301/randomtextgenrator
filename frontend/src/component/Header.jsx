@@ -33,8 +33,8 @@ const Header = () => {
           <div className="hidden md:flex flex-1 items-center justify-center space-x-8">
             <Link to="/" className="py-2 px-4 hover:text-gray-600 transition duration-300">Home</Link>
             <Link to="/generate-text" className="py-2 px-4 hover:text-gray-600 transition duration-300">Generate Text</Link>
+            <Link to="/history" className="py-2 px-4 hover:text-gray-600 transition duration-300">Saved</Link>
             <Link to="/about" className="py-2 px-4 hover:text-gray-600 transition duration-300">About</Link>
-            <Link to="/history" className="py-2 px-4 hover:text-gray-600 transition duration-300">History</Link>
             {!currentUser && (  <Link to="/login" className="py-2 px-4 hover:text-gray-600 transition duration-300">Login</Link>)}
             {/* <Link to="/signup" className="py-2 px-4 hover:text-gray-600 transition duration-300">Signup</Link> */}
           </div>
