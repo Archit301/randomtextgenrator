@@ -35,8 +35,8 @@ const Header = () => {
             <Link to="/generate-text" className="py-2 px-4 hover:text-gray-600 transition duration-300">Generate Text</Link>
             <Link to="/about" className="py-2 px-4 hover:text-gray-600 transition duration-300">About</Link>
             <Link to="/history" className="py-2 px-4 hover:text-gray-600 transition duration-300">History</Link>
-            <Link to="/login" className="py-2 px-4 hover:text-gray-600 transition duration-300">Login</Link>
-            <Link to="/signup" className="py-2 px-4 hover:text-gray-600 transition duration-300">Signup</Link>
+            {!currentUser && (  <Link to="/login" className="py-2 px-4 hover:text-gray-600 transition duration-300">Login</Link>)}
+            {/* <Link to="/signup" className="py-2 px-4 hover:text-gray-600 transition duration-300">Signup</Link> */}
           </div>
 
           {/* Theme Toggle Icons */}
