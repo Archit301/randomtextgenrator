@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 
 const Genratetext = () => {
     const [text, setText] = useState("");
-    const [length, setLength] = useState(10);
+    let [length, setLength] = useState(10);
     const [charset, setCharset] = useState(["alphabetic"]);
     const [meaningfulText, setMeaningfulText] = useState(false);
     const [customText, setCustomText] = useState("");
@@ -20,7 +20,7 @@ const Genratetext = () => {
     // Function to generate random text from API
     const generateRandomText = () => {
         if(length>10000){
-            length=length.slice(0, 10000) 
+            length=10000 
         }
       fetch(`/backend/text/generate-random-text-length?length=${length}`)
         .then((response) => response.json())
@@ -35,7 +35,7 @@ const Genratetext = () => {
     // Function to generate random text with custom length from API
     const generateRandomTextWithLength = () => {
         if(length>10000){
-            length=length.slice(0, 10000) 
+            length=10000 
         }
       const charsetString = charset.join(",");
       fetch(`/backend/text/generate-random-text-custom?length=${length}&charset=${charsetString}`)
@@ -51,7 +51,7 @@ const Genratetext = () => {
     // Function to generate meaningful text from API
     const generateMeaningfulText = () => {
         if(length>10000){
-            length=length.slice(0, 10000) 
+            length=10000 
         }
       fetch(`/backend/text/generate-meaningful-text?length=${length}`)
         .then((response) => response.json())
